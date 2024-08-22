@@ -1,4 +1,5 @@
-from aiogram.types import Message
+from aiogram import types
+from aiogram.types import Message, WebAppInfo
 
 from data.loader import dp, db, bot
 from keyboards.reply import main_menu
@@ -36,3 +37,10 @@ async def restart_register(message: Message):
 @dp.message_handler(commands='help')
 async def command_start(message: Message):
     await message.answer('<b>Единый call-center:</b> +998951940102 или +998997639787')
+
+
+@dp.message_handler(regexp='web2')
+async def command_start(message: Message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    markup.add(types.KeyboardButton("Открыть веб стараницу", web_app=WebAppInfo(url="https://www.youtube.com/")))
+    await message.answer('web2', reply_markup=markup)

@@ -7,7 +7,7 @@ load_dotenv()
 BOT_TOKEN = str(os.getenv("BOT_TOKEN"))
 
 admin_id = [
-    1931305876
+660515831
 ]
 
 type_of_review = ['😤Хочу пожаловатся 👎🏻',
